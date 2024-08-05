@@ -1,0 +1,29 @@
+<%= form_with url: import_products_path, local: true, multipart: true do |form| %>
+  <div class="field">
+    <%= form.label :file, "Select Excel File" %>
+    <%= form.file_field :file %>
+  </div>
+  <div class="actions">
+    <%= form.submit "Import Products" %>
+  </div>
+<% end %>
+
+<h1>Products</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.name %></td>
+        <td><%= product.price %></td>
+        <td><%= product.quantity %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

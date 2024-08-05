@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :comments
   resources :posts
 
+  resources :products do
+    collection { post :import }
+  end
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
